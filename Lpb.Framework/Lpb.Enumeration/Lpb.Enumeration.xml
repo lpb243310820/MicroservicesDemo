@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lpb.Enumeration</name>
+    </assembly>
+    <members>
+        <member name="T:Lpb.Enumeration.LoginType">
+            <summary>
+            登录类型枚举
+            </summary>
+        </member>
+        <member name="F:Lpb.Enumeration.LoginType.WeChat">
+            <summary>
+            微信公众号
+            </summary>
+        </member>
+        <member name="F:Lpb.Enumeration.LoginType.WxOpen">
+            <summary>
+            小程序（单独一套机制 https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html）
+            </summary>
+        </member>
+        <member name="F:Lpb.Enumeration.LoginType.App">
+            <summary>
+            APP
+            </summary>
+        </member>
+        <member name="F:Lpb.Enumeration.UserRole.Customer">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Lpb.Enumeration.UserRole.Doctor">
+            <summary>
+            医生
+            </summary>
+        </member>
+    </members>
+</doc>

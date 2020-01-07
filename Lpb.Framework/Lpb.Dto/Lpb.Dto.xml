@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lpb.Dto</name>
+    </assembly>
+    <members>
+        <member name="T:Lpb.Dto.UserCenter.Token.RefreshTokenDto">
+            <summary>
+            刷新Token函数需要的传参
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RefreshTokenDto.ClientId">
+            <summary>
+            客户端Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RefreshTokenDto.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RefreshTokenDto.DeviceUUID">
+            <summary>
+            设备唯一标识
+            </summary>
+        </member>
+        <member name="T:Lpb.Dto.UserCenter.Token.RequestTokenDto">
+            <summary>
+            RequestToken函数需要的传参
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.ClientId">
+            <summary>
+            客户端Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.UnionId">
+            <summary>
+            联合Id，微信登录用
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.JiguangId">
+            <summary>
+            极光推送的Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.Phone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.Password">
+            <summary>
+            手机号码登录用密码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.Code">
+            <summary>
+            小程序使用手机号码和密码登录时
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.RequestTokenDto.DeviceUUID">
+            <summary>
+            设备唯一标识
+            </summary>
+        </member>
+        <member name="T:Lpb.Dto.UserCenter.Token.ResponseTokenModel">
+            <summary>
+            RequestToken函数的返回值
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.AccessToken">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.ExpiresIn">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.TokenType">
+            <summary>
+            token类型
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.SetPassword">
+            <summary>
+            是否需要设置密码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.Token.ResponseTokenModel.Msg">
+            <summary>
+            返回的信息
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.UnionId">
+            <summary>
+            同一个微信开放平台帐号下的移动应用、网站应用和公众帐号，用户的unionid是唯一的。换句话说，同一用户，对同一个微信开放平台下的不同应用，unionid是相同的。
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.AppOpenId">
+            <summary>
+            微信公众平台（针对app的用户唯一Id）
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.MpOpenId">
+            <summary>
+            微信公众号（针对微信公众号的用户唯一Id）
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.WxOpenId">
+            <summary>
+            小程序（针对小程序的用户唯一Id）
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.JiguangId">
+            <summary>
+            极光推送的Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.HuanxinId">
+            <summary>
+            环信Id
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.CardId">
+            <summary>
+            用户身份证号码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.Birthdate">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女，冗余信息
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.NickName">
+            <summary>
+            昵称（默认是Laiba_guid）
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.LockoutEndDateUtc">
+            <summary>
+            锁定时间
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.AccessFailedCount">
+            <summary>
+            访问失败次数
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.IsLockoutEnabled">
+            <summary>
+            是否可以锁定
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.PhoneNumber">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.IsActive">
+            <summary>
+            用户是否被激活，默认是激活的
+            </summary>
+        </member>
+    </members>
+</doc>

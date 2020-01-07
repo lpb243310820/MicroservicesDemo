@@ -1,0 +1,136 @@
+﻿{
+  "ReRoutes": [
+    ///////////////////Service1/////////////////////
+    {
+      //上游Api请求格式
+      "UpstreamPathTemplate": "/api_a/{controller}/{action}",
+      //上下游支持请求方法
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      //网关转发到下游格式
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      // 请求头的转化 在返回给客户端的的Header中添加一个key/value
+      "DownstreamHeaderTransform": {
+        //"Access-Control-Allow-Origin": "https://*.comeon4eyes.com",//只能定义一个，不能使用数组
+        //"Access-Control-Allow-Headers": "*",
+        //"Access-Control-Allow-Methods": "*",
+        "Access-Control-Expose-Headers": "Content-Disposition"
+      },
+      // 请求头的转化 转发给下游的Header重添加一个key/value
+      "UpstreamHeaderTransform": {
+        //"Access-Control-Allow-Origin": "https://*.comeon4eyes.com",//只能定义一个，不能使用数组
+        //"Access-Control-Allow-Headers": "*",
+        //"Access-Control-Allow-Methods": "*",
+        "Access-Control-Expose-Headers": "Content-Disposition"
+      },
+      //下游服务配置
+      "DownstreamHostAndPorts": [
+        {
+          //下游地址
+          "Host": "localhost",
+          //下游端口号
+          "Port": 5001
+        },
+        {
+          "Host": "localhost",
+          "Port": 6001
+        }
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //LeastConnection:将请求发往最空闲的那个服务器,RoundRobin轮流转发,NoLoadBalance:总是发往第一个请求或者是服务发现
+      },
+      //对于除了请求头中ClientId=127.0.0.1的意外所有求情启用限流，10秒该api最多2次,如果达到2次需要从第2次请求闭合后等待5秒进行下一次访问
+      "RateLimitOptions": {
+        "ClientWhitelist": [], //白名单，不受限流控制
+        "EnableRateLimiting": true, //使用启用限流
+        "Period": "10s", //限流控制的时间段 1s, 5m, 1h, 1d
+        "PeriodTimespan": 5, //超过限流限制的次数后,需要等待重置的时间（单位是秒）
+        "Limit": 2 //在限流控制时间段内最大访问数
+      },
+      //授权信息
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ServiceAKey",
+        "AllowedScopes": []
+      }
+      //"ServiceName": "ServiceA",
+      //"UseServiceDiscovery": true
+    },
+
+    ///////////////////Service2/////////////////////
+    {
+      //上游Api请求格式
+      "UpstreamPathTemplate": "/api_b/{controller}/{action}",
+      //上下游支持请求方法
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      //网关转发到下游格式
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      // 请求头的转化 在返回给客户端的的Header中添加一个key/value
+      "DownstreamHeaderTransform": {
+        //"Access-Control-Allow-Origin": "https://*.comeon4eyes.com",//只能定义一个，不能使用数组
+        //"Access-Control-Allow-Headers": "*",
+        //"Access-Control-Allow-Methods": "*",
+        "Access-Control-Expose-Headers": "Content-Disposition"
+      },
+      // 请求头的转化 转发给下游的Header重添加一个key/value
+      "UpstreamHeaderTransform": {
+        //"Access-Control-Allow-Origin": "https://*.comeon4eyes.com",//只能定义一个，不能使用数组
+        //"Access-Control-Allow-Headers": "*",
+        //"Access-Control-Allow-Methods": "*",
+        "Access-Control-Expose-Headers": "Content-Disposition"
+      },
+      //下游服务配置
+      "DownstreamHostAndPorts": [
+        {
+          //下游地址
+          "Host": "localhost",
+          //下游端口号
+          "Port": 5002
+        },
+        {
+          "Host": "localhost",
+          "Port": 6002
+        }
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //LeastConnection:将请求发往最空闲的那个服务器,RoundRobin轮流转发,NoLoadBalance:总是发往第一个请求或者是服务发现
+      },
+      //对于除了请求头中ClientId=127.0.0.1的意外所有求情启用限流，10秒该api最多2次,如果达到2次需要从第2次请求闭合后等待5秒进行下一次访问
+      "RateLimitOptions": {
+        "ClientWhitelist": [], //白名单，不受限流控制
+        "EnableRateLimiting": true, //使用启用限流
+        "Period": "10s", //限流控制的时间段 1s, 5m, 1h, 1d
+        "PeriodTimespan": 5, //超过限流限制的次数后,需要等待重置的时间（单位是秒）
+        "Limit": 2 //在限流控制时间段内最大访问数
+      },
+      //授权信息
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ServiceBKey",
+        "AllowedScopes": []
+      }
+      //"ServiceName": "ServiceB",
+      //"UseServiceDiscovery": true
+    }
+  ],
+  //熔断
+  "QoSOptions": {
+    "ExceptionsAllowedBeforeBreaking": 3, //允许多少个异常请求
+    "DurationOfBreak": 1000, //熔断的时间(秒)
+    "TimeoutValue": 5000 //下游请求的处理时间超过多少则将请求设置为超时
+  },
+  "GlobalConfiguration": {
+    //"RequestIdKey": "OcRequestId",
+    //"AdministrationPath": "/administration",
+    "BaseUrl": "http://127.0.0.1", //网关暴露的的地址
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false, //"是否显示X-Rate-Limit和Retry-After头"
+      "QuotaExceededMessage": "RateLimit!", //提示信息
+      "HttpStatusCode": 200, //状态码
+      "ClientIdHeader": "ClientId" //用来设别客户请求头,默认为ClientId
+    },
+    "ServiceDiscoveryProvider": {
+      "Host": "127.0.0.1",
+      "Port": 8500
+    }
+  }
+}

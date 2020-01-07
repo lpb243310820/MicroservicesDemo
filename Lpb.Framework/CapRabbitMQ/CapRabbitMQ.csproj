@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetCore.CAP" Version="3.0.0" />
+    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="3.0.0" />
+    <PackageReference Include="DotNetCore.CAP.MySql" Version="3.0.0" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>

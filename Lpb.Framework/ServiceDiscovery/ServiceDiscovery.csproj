@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ServiceConfigurer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp" Version="5.1.0" />
+    <PackageReference Include="Abp.Web.Common" Version="5.1.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="DnsClient" Version="1.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lpb.Dto\Lpb.Dto.csproj" />
+    <ProjectReference Include="..\Lpb.Extend\Lpb.Extend.csproj" />
+    <ProjectReference Include="..\PollyHttpClient\PollyHttpClient.csproj" />
+    <ProjectReference Include="..\UseConsul\UseConsul.csproj" />
+  </ItemGroup>
+
+</Project>

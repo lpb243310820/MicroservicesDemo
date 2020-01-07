@@ -1,0 +1,76 @@
+﻿{
+  "ReRoutes": [
+    ///////////////////Service1/////////////////////
+    {
+      //上游Api请求格式
+      "UpstreamPathTemplate": "/api_a/{controller}/{action}",
+      //上下游支持请求方法
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      //网关转发到下游格式
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      //下游服务配置
+      "DownstreamHostAndPorts": [
+        {
+          //下游地址
+          "Host": "localhost",
+          //下游端口号
+          "Port": 5001
+        },
+        {
+          "Host": "localhost",
+          "Port": 6001
+        }
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //LeastConnection:将请求发往最空闲的那个服务器,RoundRobin轮流转发,NoLoadBalance:总是发往第一个请求或者是服务发现
+      }
+      //"ServiceName": "BackstageService",
+      //"LoadBalancer": "RoundRobin" //这种方式不起作用
+      //"UseServiceDiscovery": true
+    },
+
+    ///////////////////Service2/////////////////////
+    {
+      //上游Api请求格式
+      "UpstreamPathTemplate": "/api_b/{controller}/{action}",
+      //上下游支持请求方法
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      //网关转发到下游格式
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      //下游服务配置
+      "DownstreamHostAndPorts": [
+        {
+          //下游地址
+          "Host": "localhost",
+          //下游端口号
+          "Port": 5002
+        }
+      ],
+      //"ServiceName": "BackstageService",
+      "LoadBalancer": "LeastConnection" //RoundRobin
+      //"UseServiceDiscovery": true
+    }
+  ],
+  "GlobalConfiguration": {
+    //"RequestIdKey": "OcRequestId",
+    //"AdministrationPath": "/administration",
+    "BaseUrl": "http://127.0.0.1",
+    "RateLimitOptions": {
+      "ClientWhitelist": [],
+      "EnableRateLimiting": true,
+      "Period": "10s",
+      "PeriodTimespan": 5,
+      "Limit": 2,
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "接口限流!",
+      "HttpStatusCode": 200,
+      "ClientIdHeader": "ClientId"
+    },
+    "ServiceDiscoveryProvider": {
+      "Host": "127.0.0.1",
+      "Port": 8500
+    }
+  }
+}
