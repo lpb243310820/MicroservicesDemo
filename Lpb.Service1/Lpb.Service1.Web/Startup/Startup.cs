@@ -2,9 +2,11 @@
 using Abp.Castle.Logging.Log4Net;
 using Abp.EntityFrameworkCore;
 using Abp.Extensions;
+using CapRabbitMq;
 using Castle.Facilities.Logging;
 using Lpb.Service1.Configuration;
 using Lpb.Service1.EntityFrameworkCore;
+using Lpb.Service1.Web.Subscriber;
 using Lpb.Service1.Web.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,10 +46,10 @@ namespace Lpb.Service1.Web.Startup
             //注册Polly
             PollyConfigurer.Configure(services, _appConfiguration);
 
-            ////注册cap之前一定要注册服务
-            //services.AddTransient<ISubscriberService, SubscriberService>();
-            ////注册CAP，RabbitMQ
-            //CapConfigurer.Configure(services, _appConfiguration);
+            //注册cap之前一定要注册服务
+            services.AddTransient<ISubscriberService, SubscriberService>();
+            //注册CAP，RabbitMQ
+            CapConfigurer.Configure(services, _appConfiguration);
 
             //配置consul注册
             services.AddConsul(_appConfiguration);

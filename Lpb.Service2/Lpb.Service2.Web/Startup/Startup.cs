@@ -18,6 +18,8 @@ using Lpb.Service2.Web.Swagger;
 using Microsoft.OpenApi.Models;
 using PollyHttpClient;
 using UseConsul;
+using CapRabbitMq;
+using Lpb.Service2.Web.Subscriber;
 
 namespace Lpb.Service2.Web.Startup
 {
@@ -45,10 +47,10 @@ namespace Lpb.Service2.Web.Startup
             //注册Polly
             PollyConfigurer.Configure(services, _appConfiguration);
 
-            ////注册cap之前一定要注册服务
-            //services.AddTransient<ISubscriberService, SubscriberService>();
-            ////注册CAP，RabbitMQ
-            //CapConfigurer.Configure(services, _appConfiguration);
+            //注册cap之前一定要注册服务
+            services.AddTransient<ISubscriberService, SubscriberService>();
+            //注册CAP，RabbitMQ
+            CapConfigurer.Configure(services, _appConfiguration);
 
             //配置consul注册
             services.AddConsul(_appConfiguration);

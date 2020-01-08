@@ -28,6 +28,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lpb.Framework\CapRabbitMQ\CapRabbitMQ.csproj" />
     <ProjectReference Include="..\..\Lpb.Framework\PollyHttpClient\PollyHttpClient.csproj" />
     <ProjectReference Include="..\..\Lpb.Framework\ServiceDiscovery\ServiceDiscovery.csproj" />
     <ProjectReference Include="..\Lpb.Service1.Application\Lpb.Service1.Application.csproj" />
