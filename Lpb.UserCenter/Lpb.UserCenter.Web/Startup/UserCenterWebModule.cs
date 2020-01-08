@@ -11,8 +11,8 @@ using Microsoft.Extensions.Configuration;
 namespace Lpb.UserCenter.Web.Startup
 {
     [DependsOn(
-        typeof(UserCenterApplicationModule), 
-        typeof(UserCenterEntityFrameworkCoreModule), 
+        typeof(UserCenterApplicationModule),
+        typeof(UserCenterEntityFrameworkCoreModule),
         typeof(AbpAspNetCoreModule))]
     public class UserCenterWebModule : AbpModule
     {
@@ -27,10 +27,7 @@ namespace Lpb.UserCenter.Web.Startup
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(UserCenterConsts.ConnectionStringName);
 
-            Configuration.Modules.AbpAspNetCore()
-                .CreateControllersForAppServices(
-                    typeof(UserCenterApplicationModule).GetAssembly()
-                );
+            Configuration.Modules.AbpAspNetCore().CreateControllersForAppServices(typeof(UserCenterApplicationModule).GetAssembly());
         }
 
         public override void Initialize()

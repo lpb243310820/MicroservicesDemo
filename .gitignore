@@ -30,6 +30,11 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+[Ee]rror/
+[Ff]atal/
+[Ii]nfo/
+[Ww]arn/
+[Ss]enparcTraceLog/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -348,3 +353,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+App_Data/debug/
+App_Data/error/
+App_Data/fatal/
+App_Data/info/
+App_Data/warn/

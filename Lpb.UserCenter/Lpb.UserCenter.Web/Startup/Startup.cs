@@ -3,6 +3,7 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.EntityFrameworkCore;
 using Abp.Extensions;
 using Castle.Facilities.Logging;
+using Lpb.UserCenter.Configuration;
 using Lpb.UserCenter.EntityFrameworkCore;
 using Lpb.UserCenter.Web.Swagger;
 using Microsoft.AspNetCore.Builder;
@@ -23,7 +24,7 @@ namespace Lpb.UserCenter.Web.Startup
         private readonly IConfiguration _appConfiguration;
         public Startup(IWebHostEnvironment env)
         {
-            _appConfiguration = env.GetAppConfiguration();
+            _appConfiguration = AppConfigurations.Get(env.ContentRootPath, env.EnvironmentName);
         }
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
@@ -63,13 +64,13 @@ namespace Lpb.UserCenter.Web.Startup
                 options.DocInclusionPredicate((docName, description) => true);
 
                 // Define the BearerAuth scheme that's in use
-                //options.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
-                //{
-                //    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                //    Name = "Authorization",
-                //    In = ParameterLocation.Header,
-                //    Type = SecuritySchemeType.ApiKey
-                //});
+                options.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
             });
 
             //Configure Abp and Dependency Injection
@@ -99,10 +100,7 @@ namespace Lpb.UserCenter.Web.Startup
             // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
             app.UseSwaggerUI(options =>
             {
-                //options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 options.SwaggerEndpoint(_appConfiguration["App:SwaggerEndPoint"], "用户中心");
-                //options.IndexStream = () => Assembly.GetExecutingAssembly()
-                //    .GetManifestResourceStream("Laiba.Data.Web.wwwroot.swagger.ui.index.html");
                 options.InjectBaseUrl(_appConfiguration["App:ServerRootAddress"]);
             }); //URL: /swagger
         }

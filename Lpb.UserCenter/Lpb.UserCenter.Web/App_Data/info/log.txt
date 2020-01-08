@@ -31,3 +31,35 @@
 2020-01-08 08:38:49,664 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/swagger/favicon-16x16.png  
 2020-01-08 08:38:49,665 [5] INFO  Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
 2020-01-08 08:38:49,665 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1.7411ms 200 image/png
+2020-01-08 08:44:00,781 [1] INFO  Microsoft.AspNetCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,tr
+2020-01-08 08:44:00,949 [1] INFO  Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\lipengbo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-01-08 08:44:01,641 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/Home/Index  
+2020-01-08 08:44:01,720 [12] INFO  Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web)'
+2020-01-08 08:44:01,742 [12] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Lpb.UserCenter.Web.Controllers.HomeController (Lpb.UserCenter.Web).
+2020-01-08 08:44:01,836 [12] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executing action method Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web) - Validation state: Valid
+2020-01-08 08:44:01,839 [12] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action method Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.2479ms.
+2020-01-08 08:44:01,848 [12] INFO  Abp.Auditing.SimpleLogAuditingStore - AUDIT LOG: Lpb.UserCenter.Web.Controllers.HomeController.Index is executed by an anonymous user in 75 ms from ::1 IP address with succeed.
+2020-01-08 08:44:01,853 [12] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+2020-01-08 08:44:01,856 [12] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web) in 111.3435ms
+2020-01-08 08:44:01,856 [12] INFO  Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web)'
+2020-01-08 08:44:01,859 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 219.4678ms 302 
+2020-01-08 08:44:01,882 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/swagger/index.html  
+2020-01-08 08:44:01,926 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 43.974ms 200 text/html;charset=utf-8
+2020-01-08 08:44:02,156 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/swagger/v1/swagger.json  
+2020-01-08 08:44:02,178 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 21.4104ms 200 application/json;charset=utf-8
+2020-01-08 08:47:51,251 [1] INFO  Microsoft.AspNetCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,tr
+2020-01-08 08:47:51,420 [1] INFO  Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\lipengbo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-01-08 08:47:51,800 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/Home/Index  
+2020-01-08 08:47:51,878 [5] INFO  Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web)'
+2020-01-08 08:47:51,901 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Lpb.UserCenter.Web.Controllers.HomeController (Lpb.UserCenter.Web).
+2020-01-08 08:47:52,001 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executing action method Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web) - Validation state: Valid
+2020-01-08 08:47:52,004 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action method Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.2627ms.
+2020-01-08 08:47:52,013 [5] INFO  Abp.Auditing.SimpleLogAuditingStore - AUDIT LOG: Lpb.UserCenter.Web.Controllers.HomeController.Index is executed by an anonymous user in 81 ms from ::1 IP address with succeed.
+2020-01-08 08:47:52,017 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+2020-01-08 08:47:52,020 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web) in 116.6391ms
+2020-01-08 08:47:52,021 [5] INFO  Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Lpb.UserCenter.Web.Controllers.HomeController.Index (Lpb.UserCenter.Web)'
+2020-01-08 08:47:52,024 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 225.5018ms 302 
+2020-01-08 08:47:52,050 [4] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/swagger/index.html  
+2020-01-08 08:47:52,090 [4] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 40.2001ms 200 text/html;charset=utf-8
+2020-01-08 08:47:52,253 [4] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5004/swagger/v1/swagger.json  
+2020-01-08 08:47:52,274 [4] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 21.5779ms 200 application/json;charset=utf-8

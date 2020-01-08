@@ -19,7 +19,7 @@ namespace Lpb.Service1.Web
             }
 
             var directoryInfo = new DirectoryInfo(coreAssemblyDirectoryPath);
-            while (!DirectoryContains(directoryInfo.FullName, "Lpb.Service1.sln"))
+            while (!DirectoryContains(directoryInfo.FullName, "Lpb.CoreStudy.sln"))
             {
                 if (directoryInfo.Parent == null)
                 {
@@ -29,7 +29,7 @@ namespace Lpb.Service1.Web
                 directoryInfo = directoryInfo.Parent;
             }
 
-            return Path.Combine(directoryInfo.FullName, $"src{Path.DirectorySeparatorChar}Lpb.Service1.Web");
+            return Path.Combine(directoryInfo.FullName, $"Lpb.Service1{Path.DirectorySeparatorChar}Lpb.Service1.Web");
         }
 
         private static bool DirectoryContains(string directory, string fileName)
