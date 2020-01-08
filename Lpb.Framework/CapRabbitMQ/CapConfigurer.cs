@@ -20,7 +20,8 @@ namespace CapRabbitMq
 
                 //如果你使用的 MongoDB，你可以添加如下配置：
                 //x.UseMySql(_appConfiguration["CapDbUrl"]);
-                x.UseMySql(configuration["Cap:DbUrl"]);
+                x.UseSqlServer(configuration["Cap:DbUrl"]);
+                //x.UseMySql(configuration["Cap:DbUrl"]);
                 //x.UseMongoDB(_appConfiguration["MongoDBUrl"]);  //注意，仅支持MongoDB 4.0+集群
 
                 x.UseRabbitMQ(cfg =>

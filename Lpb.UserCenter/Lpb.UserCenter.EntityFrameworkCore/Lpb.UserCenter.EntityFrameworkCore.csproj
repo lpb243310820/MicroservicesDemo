@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Version>1.0.0.0</Version>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,6 +20,11 @@
     <None Remove="Migrations\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\20200107093214_InitDb.cs" />
+    <Compile Include="Migrations\20200107093214_InitDb.designer.cs" />
+    <Compile Include="Migrations\UserCenterDbContextModelSnapshot.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Lpb.UserCenter.Core\Lpb.UserCenter.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -29,7 +34,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

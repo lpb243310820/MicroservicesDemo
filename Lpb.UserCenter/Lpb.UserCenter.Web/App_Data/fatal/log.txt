@@ -1,0 +1,45 @@
+2020-01-08 08:24:15,787 [1] FATAL Microsoft.AspNetCore.Hosting.WebHost - Application startup exception
+System.ArgumentNullException: Value cannot be null. (Parameter 'str')
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c, StringComparison comparisonType)
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c)
+   at Lpb.UserCenter.Web.Swagger.SwaggerExtensions.InjectBaseUrl(SwaggerUIOptions options, String pathBase) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Swagger\SwaggerExtensions.cs:line 16
+   at Lpb.UserCenter.Web.Startup.Startup.<Configure>b__4_1(SwaggerUIOptions options) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 106
+   at Microsoft.AspNetCore.Builder.SwaggerUIBuilderExtensions.UseSwaggerUI(IApplicationBuilder app, Action`1 setupAction)
+   at Lpb.UserCenter.Web.Startup.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 100
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-01-08 08:25:55,197 [1] FATAL Microsoft.AspNetCore.Hosting.WebHost - Application startup exception
+System.ArgumentNullException: Value cannot be null. (Parameter 'str')
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c, StringComparison comparisonType)
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c)
+   at Lpb.UserCenter.Web.Swagger.SwaggerExtensions.InjectBaseUrl(SwaggerUIOptions options, String pathBase) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Swagger\SwaggerExtensions.cs:line 16
+   at Lpb.UserCenter.Web.Startup.Startup.<Configure>b__4_1(SwaggerUIOptions options) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 106
+   at Microsoft.AspNetCore.Builder.SwaggerUIBuilderExtensions.UseSwaggerUI(IApplicationBuilder app, Action`1 setupAction)
+   at Lpb.UserCenter.Web.Startup.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 100
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-01-08 08:28:21,756 [1] FATAL Microsoft.AspNetCore.Hosting.WebHost - Application startup exception
+System.ArgumentNullException: Value cannot be null. (Parameter 'str')
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c, StringComparison comparisonType)
+   at Abp.Extensions.StringExtensions.EnsureEndsWith(String str, Char c)
+   at Lpb.UserCenter.Web.Swagger.SwaggerExtensions.InjectBaseUrl(SwaggerUIOptions options, String pathBase) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Swagger\SwaggerExtensions.cs:line 16
+   at Lpb.UserCenter.Web.Startup.Startup.<Configure>b__4_1(SwaggerUIOptions options) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 106
+   at Microsoft.AspNetCore.Builder.SwaggerUIBuilderExtensions.UseSwaggerUI(IApplicationBuilder app, Action`1 setupAction)
+   at Lpb.UserCenter.Web.Startup.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory) in D:\VS_work\DotNetCore\Lpb.Study\Lpb.CoreStudy.Ids4\Lpb.UserCenter\Lpb.UserCenter.Web\Startup\Startup.cs:line 100
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()

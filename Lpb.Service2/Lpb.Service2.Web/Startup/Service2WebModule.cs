@@ -27,8 +27,6 @@ namespace Lpb.Service2.Web.Startup
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(Service2Consts.ConnectionStringName);
 
-            Configuration.Navigation.Providers.Add<Service2NavigationProvider>();
-
             Configuration.Modules.AbpAspNetCore()
                 .CreateControllersForAppServices(
                     typeof(Service2ApplicationModule).GetAssembly()

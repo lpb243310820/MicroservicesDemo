@@ -27,8 +27,6 @@ namespace Lpb.UserCenter.Web.Startup
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(UserCenterConsts.ConnectionStringName);
 
-            Configuration.Navigation.Providers.Add<UserCenterNavigationProvider>();
-
             Configuration.Modules.AbpAspNetCore()
                 .CreateControllersForAppServices(
                     typeof(UserCenterApplicationModule).GetAssembly()

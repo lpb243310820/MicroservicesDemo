@@ -27,8 +27,6 @@ namespace Lpb.Service1.Web.Startup
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(Service1Consts.ConnectionStringName);
 
-            Configuration.Navigation.Providers.Add<Service1NavigationProvider>();
-
             Configuration.Modules.AbpAspNetCore()
                 .CreateControllersForAppServices(
                     typeof(Service1ApplicationModule).GetAssembly()
