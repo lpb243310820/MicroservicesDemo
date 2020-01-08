@@ -1,21 +1,22 @@
-﻿using System;
-using Abp.AspNetCore;
+﻿using Abp.AspNetCore;
 using Abp.Castle.Logging.Log4Net;
 using Abp.EntityFrameworkCore;
-using Lpb.Service1.EntityFrameworkCore;
+using Abp.Extensions;
 using Castle.Facilities.Logging;
+using Lpb.Service1.Configuration;
+using Lpb.Service1.EntityFrameworkCore;
+using Lpb.Service1.Web.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using Lpb.Service1.Configuration;
-using Lpb.Service1.Web.Swagger;
-using System.Linq;
-using Abp.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PollyHttpClient;
+using System;
+using System.Linq;
+using UseConsul;
 
 namespace Lpb.Service1.Web.Startup
 {
@@ -39,6 +40,22 @@ namespace Lpb.Service1.Web.Startup
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).AddNewtonsoftJson();
+
+            //注册Polly
+            PollyConfigurer.Configure(services, _appConfiguration);
+
+            ////注册cap之前一定要注册服务
+            //services.AddTransient<ISubscriberService, SubscriberService>();
+            ////注册CAP，RabbitMQ
+            //CapConfigurer.Configure(services, _appConfiguration);
+
+            //配置consul注册
+            services.AddConsul(_appConfiguration);
+            //配置consul发现
+            services.AddConsulServiceDiscovery(_appConfiguration);
+
+            //添加jwt认证授权
+            AuthConfigurer.Configure(services, _appConfiguration);
 
             // Configure CORS for angular2 UI
             services.AddCors(
@@ -87,6 +104,14 @@ namespace Lpb.Service1.Web.Startup
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseAbp(); //Initializes ABP framework.
+
+            app.UseCors(_defaultCorsPolicyName); // Enable CORS!
+
+            //添加jwt认证授权
+            app.UseAuthentication();
+
+            //启动Consul
+            app.UseConsul();
 
             app.UseStaticFiles();
             app.UseRouting();

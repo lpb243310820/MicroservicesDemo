@@ -28,10 +28,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lpb.Framework\PollyHttpClient\PollyHttpClient.csproj" />
+    <ProjectReference Include="..\..\Lpb.Framework\UseConsul\UseConsul.csproj" />
     <ProjectReference Include="..\Lpb.Service2.Application\Lpb.Service2.Application.csproj" />
     <ProjectReference Include="..\Lpb.Service2.EntityFrameworkCore\Lpb.Service2.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>

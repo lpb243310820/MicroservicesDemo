@@ -45,23 +45,11 @@ namespace ServiceDiscovery
 
             if (string.IsNullOrWhiteSpace(_serviceUrl))
             {
-                if (serviceName.Equals("PayService")) _serviceUrl = $"http://{localDebugAddress}:{8001}";
-                if (serviceName.Equals("CustomerService")) _serviceUrl = $"http://{localDebugAddress}:{8002}";
-                if (serviceName.Equals("DataService")) _serviceUrl = $"http://{localDebugAddress}:{8003}";
-                if (serviceName.Equals("DoctorService")) _serviceUrl = $"http://{localDebugAddress}:{8004}";
+                if (serviceName.Equals("Service1")) _serviceUrl = $"http://{localDebugAddress}:{5001}";
+                if (serviceName.Equals("Service2")) _serviceUrl = $"http://{localDebugAddress}:{5002}";
 
-                if (serviceName.Equals("IdentityServer")) _serviceUrl = $"http://{localDebugAddress}:{8006}";
-                if (serviceName.Equals("ResourceService")) _serviceUrl = $"http://{localDebugAddress}:{8007}";
-                if (serviceName.Equals("UserService")) _serviceUrl = $"http://{localDebugAddress}:{8008}";
-                if (serviceName.Equals("WeixinService")) _serviceUrl = $"http://{localDebugAddress}:{8009}";
-                if (serviceName.Equals("SchedulerService")) _serviceUrl = $"http://{localDebugAddress}:{8010}";
-                if (serviceName.Equals("FeedbackService")) _serviceUrl = $"http://{localDebugAddress}:{8011}";
-                if (serviceName.Equals("DiagnoseService")) _serviceUrl = $"http://{localDebugAddress}:{8012}";
-                if (serviceName.Equals("IoTService")) _serviceUrl = $"http://{localDebugAddress}:{8013}";
-                if (serviceName.Equals("LessonService")) _serviceUrl = $"http://{localDebugAddress}:{8014}";
-                if (serviceName.Equals("ShopService")) _serviceUrl = $"http://{localDebugAddress}:{8015}";
-                if (serviceName.Equals("MessageService")) _serviceUrl = $"http://{localDebugAddress}:{8016}";
-                if (serviceName.Equals("HuanxinService")) _serviceUrl = $"http://{localDebugAddress}:{8017}";
+                if (serviceName.Equals("IdentityServer")) _serviceUrl = $"http://{localDebugAddress}:{5003}";
+
                 _logger.Debug($"localDebugAddress：{serviceName}_{localDebugAddress}");
             }
 
@@ -344,75 +332,4 @@ namespace ServiceDiscovery
 
     }
 
-    public class ServiceDiscoveryOptions
-    {
-        /// <summary>
-        /// 8001
-        /// </summary>
-        public string PayServiceName { get; set; }
-        /// <summary>
-        /// 8002
-        /// </summary>
-        public string CustomerServiceName { get; set; }
-        /// <summary>
-        /// 8003
-        /// </summary>
-        public string DataServiceName { get; set; }
-        /// <summary>
-        /// 8004
-        /// </summary>
-        public string DoctorServiceName { get; set; }
-        /// <summary>
-        /// 8006
-        /// </summary>
-        public string IdentityServerName { get; set; }
-        /// <summary>
-        /// 8007
-        /// </summary>
-        public string ResourceServiceName { get; set; }
-        /// <summary>
-        /// 8008
-        /// </summary>
-        public string UserServiceName { get; set; }
-        /// <summary>
-        /// 8009
-        /// </summary>
-        public string WeixinServiceName { get; set; }
-        /// <summary>
-        /// 8010
-        /// </summary>
-        public string SchedulerServiceName { get; set; }
-        /// <summary>
-        /// 8011
-        /// </summary>
-        public string FeedbackServiceName { get; set; }
-        /// <summary>
-        /// 8012
-        /// </summary>
-        public string DiagnoseServerName { get; set; }
-        /// <summary>
-        /// 8013
-        /// </summary>
-        public string IoTServerName { get; set; }
-        /// <summary>
-        /// 8014
-        /// </summary>
-        public string LessonServiceName { get; set; }
-        /// <summary>
-        /// 8015
-        /// </summary>
-        public string ShopServiceName { get; set; }
-        /// <summary>
-        /// 8016
-        /// </summary>
-        public string MessageServerName { get; set; }
-        /// <summary>
-        /// 8017
-        /// </summary>
-        public string HuanxinServerName { get; set; }
-
-        public string LocalDebugAddress { get; set; }
-
-        public ConsulDisvoveryOptions ConsulDnsEndpoint { get; set; }
-    }
 }

@@ -6,13 +6,14 @@ using Microsoft.Extensions.Options;
 using PollyHttpClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UseConsul;
 
 namespace ServiceDiscovery.IdentityServer
 {
     public class TokenService : BaseService, ITokenService
     {
         public TokenService(ILogger logger, IOptions<ServiceDiscoveryOptions> options, IDnsQuery dnsQuery, IHttpClient httpClient, IHostingEnvironment env)
-            : base(logger, httpClient, dnsQuery, env, options.Value.IdentityServerName, options.Value.LocalDebugAddress)
+            : base(logger, httpClient, dnsQuery, env, options.Value.IdentityServiceName, options.Value.LocalDebugAddress)
         {
         }
 

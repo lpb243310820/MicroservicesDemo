@@ -1,7 +1,7 @@
 ﻿using Abp.Timing;
 using System;
 
-namespace RedisKey
+namespace Lpb.RedisKey
 {
     public class FormIdSaveInput
     {

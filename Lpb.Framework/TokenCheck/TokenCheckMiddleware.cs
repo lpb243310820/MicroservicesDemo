@@ -1,9 +1,9 @@
 ﻿using Abp.Runtime.Caching;
 using Castle.Core.Logging;
+using Lpb.RedisKey;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
-using RedisKey;
 using System;
 using System.Collections.Generic;
 using System.IO;

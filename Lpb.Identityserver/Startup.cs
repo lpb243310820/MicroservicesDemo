@@ -1,4 +1,3 @@
-using Abp.Extensions;
 using IdentityServer4.Services;
 using Lpb.Identityserver.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -7,9 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
-using System;
-using System.Linq;
+using UseConsul;
 
 namespace Lpb.Identityserver
 {
@@ -27,6 +24,9 @@ namespace Lpb.Identityserver
         {
             services.AddOptions();
             services.AddControllers();
+
+            //≈‰÷√consul◊¢≤·
+            services.AddConsul(Configuration);
 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
@@ -57,6 +57,9 @@ namespace Lpb.Identityserver
 
             //IdentityServer
             app.UseIdentityServer();
+
+            //∆Ù∂ØConsul
+            app.UseConsul();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint
             app.UseSwagger();

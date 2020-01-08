@@ -11,8 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonFramework\CommonFramework.csproj" />
-    <ProjectReference Include="..\RedisKey\RedisKey.csproj" />
+    <ProjectReference Include="..\Lpb.RedisKey\Lpb.RedisKey.csproj" />
   </ItemGroup>
 
 </Project>
