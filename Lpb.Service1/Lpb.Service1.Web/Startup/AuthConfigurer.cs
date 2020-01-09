@@ -75,7 +75,7 @@ namespace Lpb.Service1.Web.Startup
                 // We are just looking for signalr clients
                 return Task.CompletedTask;
             }
-            // http://192.168.0.226/.well-known/openid-configuration
+            // http://192.168.0.9/.well-known/openid-configuration
             var claims = context.Principal.Claims.ToList();
             Console.WriteLine(claims.ToJsonString());
 

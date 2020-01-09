@@ -35,6 +35,7 @@ bld/
 [Ii]nfo/
 [Ww]arn/
 [Ss]enparcTraceLog/
+[Aa]pp_Data/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -359,3 +360,4 @@ App_Data/error/
 App_Data/fatal/
 App_Data/info/
 App_Data/warn/
+/cert

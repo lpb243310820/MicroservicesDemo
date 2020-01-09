@@ -1,4 +1,5 @@
 using IdentityServer4.Services;
+using IdentityServer4.Stores;
 using Lpb.Identityserver.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using UseConsul;
 
 namespace Lpb.Identityserver
@@ -28,13 +31,18 @@ namespace Lpb.Identityserver
             //≈‰÷√consul◊¢≤·
             services.AddConsul(Configuration);
 
+            //services.AddSingleton<ISigningCredentialStore>(new DefaultSigningCredentialsStore(credential));
+            //services.AddSingleton<IValidationKeysStore>(new DefaultValidationKeysStore(new[] { credential.Key }));
+
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
+                //.AddSigningCredential(new X509Certificate2(Path.Combine(Directory.GetCurrentDirectory(), "test.pfx"), "123456"))
                 .AddInMemoryIdentityResources(IdentityServerConfig.GetIdentityResources())
                 .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
                 .AddInMemoryClients(IdentityServerConfig.GetClients(Configuration))
                 .AddExtensionGrantValidator<CustomerAuthCodeValidator>()
                 .AddExtensionGrantValidator<DoctorAuthCodeValidator>()
+                .AddExtensionGrantValidator<PortalAuthCodeValidator>()
                 ;
 
             services.AddTransient<IProfileService, ProfileService>();

@@ -64,16 +64,17 @@ namespace Lpb.UserCenter.Web.Startup
                 options => options.AddPolicy(
                     _defaultCorsPolicyName,
                     builder => builder
-                        .WithOrigins(
-                            // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
-                            _appConfiguration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
+                        //.WithOrigins(
+                        //    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                        //    _appConfiguration["App:CorsOrigins"]
+                        //        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        //        .Select(o => o.RemovePostFix("/"))
+                        //        .ToArray()
+                        //)
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
+                        //.AllowCredentials()
                 )
             );
 
@@ -107,6 +108,9 @@ namespace Lpb.UserCenter.Web.Startup
         {
             app.UseAbp(); //Initializes ABP framework.
 
+            app.UseStaticFiles();
+            app.UseRouting(); 
+            
             app.UseCors(_defaultCorsPolicyName); // Enable CORS!
 
             //添加jwt认证授权
@@ -114,9 +118,6 @@ namespace Lpb.UserCenter.Web.Startup
 
             //启动Consul
             app.UseConsul();
-
-            app.UseStaticFiles();
-            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {

@@ -17,7 +17,8 @@ namespace Lpb.Identityserver
             return new List<ApiResource>
             {
                 new ApiResource("api_a", "5001"),
-                new ApiResource("api_b", "5002")
+                new ApiResource("api_b", "5002"),
+                new ApiResource("portal", "8000")
             };
         }
 
@@ -40,6 +41,9 @@ namespace Lpb.Identityserver
 
             List<string> doctorGrantTypes = GrantTypes.ClientCredentials.ToList();
             doctorGrantTypes.Add("doctor_auth_code");
+
+            List<string> portalGrantTypes = GrantTypes.ClientCredentials.ToList();
+            portalGrantTypes.Add("portal_auth_code");
 
             return new List<Client>
             {
@@ -82,6 +86,29 @@ namespace Lpb.Identityserver
                         "api_a",
                     },
                     ClientSecrets = { new Secret(appConfiguration["doctor:ClientSecrets"].Sha256())}
+                },
+                new Client
+                {
+                    ClientId = appConfiguration["portal:ClientId"],
+                    AllowedGrantTypes = portalGrantTypes,
+                    RefreshTokenExpiration = TokenExpiration.Sliding,
+                    SlidingRefreshTokenLifetime = appConfiguration.GetValue<int>("portal:SlidingRefreshTokenLifetime"),//15 days
+                    AbsoluteRefreshTokenLifetime = appConfiguration.GetValue<int>("portal:AbsoluteRefreshTokenLifetime"),//30 days
+                    AccessTokenLifetime = appConfiguration.GetValue<int>("portal:AccessTokenLifetime"),
+                    AllowOfflineAccess = true,
+                    //RequireClientSecret = false,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    UpdateAccessTokenClaimsOnRefresh = true,
+                    AllowedScopes =
+                    {
+                        "api_a",
+                        "api_b",
+                        "portal",
+                        //IdentityServerConstants.StandardScopes.OfflineAccess,
+                        //IdentityServerConstants.StandardScopes.OpenId,//控制是否返回id_token
+                        //IdentityServerConstants.StandardScopes.Profile
+                    },
+                    ClientSecrets = { new Secret(appConfiguration["portal:ClientSecrets"].Sha256())}
                 }
             };
         }

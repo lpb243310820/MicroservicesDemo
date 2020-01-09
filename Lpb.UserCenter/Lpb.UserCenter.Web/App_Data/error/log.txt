@@ -1,0 +1,34 @@
+2020-01-09 13:12:54,124 [18] ERROR DotNetCore.CAP.Internal.ConsumerRegister - None of the specified endpoints were reachable
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IFrameHandler fh)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Subscribe(IEnumerable`1 topics)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass16_0.<Start>b__0()
+2020-01-09 13:16:59,938 [19] ERROR DotNetCore.CAP.Internal.ConsumerRegister - None of the specified endpoints were reachable
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IFrameHandler fh)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Subscribe(IEnumerable`1 topics)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass16_0.<Start>b__0()

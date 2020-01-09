@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Lpb.Framework\Lpb.Extend\Lpb.Extend.csproj" />
     <ProjectReference Include="..\Lpb.Framework\UseConsul\UseConsul.csproj" />
   </ItemGroup>
 

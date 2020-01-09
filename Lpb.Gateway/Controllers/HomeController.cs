@@ -7,7 +7,8 @@ namespace Lpb.Identityserver.Controllers
     {
         public ActionResult Index()
         {
-            return new ContentResult() { Content = $"{123}{this.GetType().ToString()}_{DateTime.Now.ToString()}" };
+            return new ContentResult() { Content = $"{123}{this.GetType().ToString()}_{DateTime.Now.ToString()}" }; 
+            //return Redirect("/swagger");
         }
     }
 }
