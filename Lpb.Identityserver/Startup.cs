@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
@@ -31,12 +32,13 @@ namespace Lpb.Identityserver
             //≈‰÷√consul◊¢≤·
             services.AddConsul(Configuration);
 
-            //services.AddSingleton<ISigningCredentialStore>(new DefaultSigningCredentialsStore(credential));
-            //services.AddSingleton<IValidationKeysStore>(new DefaultValidationKeysStore(new[] { credential.Key }));
+            var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+            basePath = Path.Combine(basePath, Configuration["Certificates:CertPath"]);
 
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                //.AddSigningCredential(new X509Certificate2(Path.Combine(Directory.GetCurrentDirectory(), "test.pfx"), "123456"))
+                //.AddDeveloperSigningCredential()
+                //.AddSigningCredential(new X509Certificate2(Path.Combine(Directory.GetCurrentDirectory(), Configuration["Certificates:CertPath"]), Configuration["Certificates:Password"]))
+                .AddSigningCredential(new X509Certificate2(basePath, Configuration["Certificates:Password"]))
                 .AddInMemoryIdentityResources(IdentityServerConfig.GetIdentityResources())
                 .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
                 .AddInMemoryClients(IdentityServerConfig.GetClients(Configuration))
@@ -56,12 +58,14 @@ namespace Lpb.Identityserver
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            loggerFactory.AddLog4Net();
 
             //IdentityServer
             app.UseIdentityServer();
