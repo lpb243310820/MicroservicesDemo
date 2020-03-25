@@ -18,8 +18,8 @@ namespace Lpb.Service2.Web.Subscriber
         /// 心跳
         /// </summary>
         /// <param name="msg"></param>
-        [CapSubscribe(MqTopic.Laiba_Heartbeat)]
-        public void LaibaHeartbeat(string msg)
+        [CapSubscribe(MqTopic.Lpb_Heartbeat)]
+        public void LpbHeartbeat(string msg)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace Lpb.Service2.Web.Subscriber
             }
             catch (Exception e)
             {
-                _logger.Error($"LaibaHeartbeat函数Exception错误，{e.Message}");
+                _logger.Error($"LpbHeartbeat函数Exception错误，{e.Message}");
                 //throw new UserFriendlyException("ProductInfoUpdateByBackStage", e);
             }
         }

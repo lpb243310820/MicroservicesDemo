@@ -1,6 +1,7 @@
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Lpb.Identityserver.Authentication;
+using Lpb.Identityserver.PersistedGrantStore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +36,10 @@ namespace Lpb.Identityserver
             var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
             basePath = Path.Combine(basePath, Configuration["Certificates:CertPath"]);
 
+            //注入IPersistedGrantStore的实现，用于存储AuthorizationCode和RefreshToken等等，默认实现是存储在内存中，
+            //如果服务重启那么这些数据就会被清空了，因此可实现IPersistedGrantStore将这些数据写入到数据库或者NoSql(Redis)中
+            services.AddSingleton<IPersistedGrantStore, MyPersistedGrantStore>();
+
             services.AddIdentityServer()
                 //.AddDeveloperSigningCredential()
                 //.AddSigningCredential(new X509Certificate2(Path.Combine(Directory.GetCurrentDirectory(), Configuration["Certificates:CertPath"]), Configuration["Certificates:Password"]))
@@ -45,6 +50,7 @@ namespace Lpb.Identityserver
                 .AddExtensionGrantValidator<CustomerAuthCodeValidator>()
                 .AddExtensionGrantValidator<DoctorAuthCodeValidator>()
                 .AddExtensionGrantValidator<PortalAuthCodeValidator>()
+                .AddPersistedGrantStore<MyPersistedGrantStore>()
                 ;
 
             services.AddTransient<IProfileService, ProfileService>();

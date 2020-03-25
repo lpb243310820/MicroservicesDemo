@@ -53,7 +53,7 @@ namespace Lpb.Dto.UserCenter.UserInfo
         public int? Gender { get; set; }
 
         /// <summary>
-        /// 昵称（默认是Laiba_guid）
+        /// 昵称（默认是Lpb_guid）
         /// </summary>
         public string NickName { get; set; }
 

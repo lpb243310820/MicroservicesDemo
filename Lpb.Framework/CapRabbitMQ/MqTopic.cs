@@ -92,7 +92,7 @@
         /// 消息队列心跳
         /// 参数：Marketing，BackStage，DataServer，Weixin
         /// </summary>
-        public const string Laiba_Heartbeat = "Lpb.Heartbeat";
+        public const string Lpb_Heartbeat = "Lpb.Heartbeat";
 
 
         /////////////////////////////////微信服务器发送////////////////////////////////////
@@ -100,7 +100,7 @@
         /// 微信订阅（关注）事件
         /// 参数：WeixinMpSubscribe
         /// </summary>
-        public const string Laiba_Weixin_Subscribe = "Lpb.Weixin.Subscribe";
+        public const string Lpb_Weixin_Subscribe = "Lpb.Weixin.Subscribe";
 
 
         /////////////////////////////////服务端（需要发送消息至APP消息列表的）发送////////////////////////////////////
@@ -108,7 +108,7 @@
         /// 发送消息至消息列表
         /// 参数：CreateMessageInput
         /// </summary>
-        public const string Laiba_App_UserMessage = "Lpb.App.UserMessage";
+        public const string Lpb_App_UserMessage = "Lpb.App.UserMessage";
 
     }
 }

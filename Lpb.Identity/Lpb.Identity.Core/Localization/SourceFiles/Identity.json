@@ -1,0 +1,11 @@
+﻿{
+  "culture": "zh-Hans",
+  "texts": {
+    "HelloWorld": "你好  世界  ！！！",
+    "ChangeLanguage": "Change language",
+    "HomePage": "HomePage",
+    "About": "About",
+    "Home_Description": "Welcome to Feedback...",
+    "About_Description": "This is a simple startup template to use ASP.NET Core with ABP framework."
+  }
+}

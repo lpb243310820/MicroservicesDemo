@@ -151,7 +151,7 @@
         </member>
         <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.NickName">
             <summary>
-            昵称（默认是Laiba_guid）
+            昵称（默认是Lpb_guid）
             </summary>
         </member>
         <member name="P:Lpb.Dto.UserCenter.UserInfo.UserListDto.Password">

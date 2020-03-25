@@ -11,7 +11,7 @@ namespace Lpb.Extend
     public static class DesEncrypt
     {
         //8位长度
-        private static string KEY = "LaibaJiankang";
+        private static string KEY = "LpbJiankang";
         private static byte[] key = ASCIIEncoding.ASCII.GetBytes(KEY.Substring(0, 8));
         private static byte[] iv = ASCIIEncoding.ASCII.GetBytes(KEY.Insert(0, "Suoer").Substring(0, 8));
 

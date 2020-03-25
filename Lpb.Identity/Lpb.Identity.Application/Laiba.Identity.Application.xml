@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lpb.Identity.Application</name>
+    </assembly>
+    <members>
+        <member name="F:Lpb.Identity.AppConsts.DefaultPassPhrase">
+            <summary>
+            Default pass phrase for SimpleStringCipher decrypt/encrypt operations
+            </summary>
+        </member>
+        <member name="T:Lpb.Identity.IdentityAppServiceBase">
+            <summary>
+            Derive your application services from this class.
+            </summary>
+        </member>
+        <member name="T:Lpb.Identity.AbpPersistedGrantStore">
+             <summary>
+             Test应用层服务的接口实现方法  
+            </summary>
+        </member>
+    </members>
+</doc>

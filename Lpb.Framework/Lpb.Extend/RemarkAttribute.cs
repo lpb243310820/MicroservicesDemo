@@ -33,7 +33,7 @@ namespace Lpb.Extend
             }
             catch (Exception ex)
             {
-                //throw new Exception("EnumExtension的GetRemark出现异常");
+                throw new Exception($"EnumExtension的GetRemark出现异常:{ex.Message}");
                 //logger.Error("EnumExtension的GetRemark出现异常", ex);
                 remark = string.Empty;
             }

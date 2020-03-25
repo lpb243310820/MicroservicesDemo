@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Certificates\" />
+    <Folder Include="PersistedGrantStore\" />
   </ItemGroup>
 
   <ItemGroup>
