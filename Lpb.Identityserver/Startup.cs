@@ -1,15 +1,19 @@
+using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Lpb.Identityserver.Authentication;
+using Lpb.Identityserver.Data;
 using Lpb.Identityserver.PersistedGrantStore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using UseConsul;
 
@@ -27,6 +31,10 @@ namespace Lpb.Identityserver
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //添加链接字符串
+            services.AddDbContext<PersistedGrantSqlDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default")));
+
             services.AddOptions();
             services.AddControllers();
 
@@ -38,7 +46,9 @@ namespace Lpb.Identityserver
 
             //注入IPersistedGrantStore的实现，用于存储AuthorizationCode和RefreshToken等等，默认实现是存储在内存中，
             //如果服务重启那么这些数据就会被清空了，因此可实现IPersistedGrantStore将这些数据写入到数据库或者NoSql(Redis)中
-            services.AddSingleton<IPersistedGrantStore, MyPersistedGrantStore>();
+            //services.AddSingleton<IPersistedGrantStore, MyPersistedGrantStore>();
+            var connectionString = Configuration["ConnectionStrings:Default"];
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddIdentityServer()
                 //.AddDeveloperSigningCredential()
@@ -50,7 +60,18 @@ namespace Lpb.Identityserver
                 .AddExtensionGrantValidator<CustomerAuthCodeValidator>()
                 .AddExtensionGrantValidator<DoctorAuthCodeValidator>()
                 .AddExtensionGrantValidator<PortalAuthCodeValidator>()
-                .AddPersistedGrantStore<MyPersistedGrantStore>()
+                //.AddPersistedGrantStore<MyPersistedGrantStore>()
+                // this adds the operational data from DB (codes, tokens, consents)
+                .AddOperationalStore<PersistedGrantSqlDbContext>(options =>
+                {
+                    options.ConfigureDbContext = b =>
+                        b.UseSqlServer(connectionString,
+                            sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                    // this enables automatic token cleanup. this is optional.
+                    options.EnableTokenCleanup = true;
+                    options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
+                })
                 ;
 
             services.AddTransient<IProfileService, ProfileService>();

@@ -20,11 +20,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Dtos\**" />
-    <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Dtos\**" />
-    <EmbeddedResource Remove="Tests\**" />
     <None Remove="Dtos\**" />
-    <None Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Abp.EntityFrameworkCore" Version="5.1.0" />

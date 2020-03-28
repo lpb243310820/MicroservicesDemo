@@ -11,9 +11,6 @@ namespace Lpb.Identity
         {
             Configuration.Auditing.IsEnabledForAnonymousUsers = false;
 
-            //设置时区
-            //Clock.Provider = ClockProviders.Local;//Clock.Now=DateTime.UtcNow
-
             IdentityLocalizationConfigurer.Configure(Configuration.Localization);
         }
 

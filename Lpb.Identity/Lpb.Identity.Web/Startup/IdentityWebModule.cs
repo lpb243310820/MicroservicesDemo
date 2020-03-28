@@ -5,6 +5,7 @@ using Abp.Reflection.Extensions;
 using Abp.Runtime.Caching.Redis;
 using Lpb.Identity.Configuration;
 using Lpb.Identity.EntityFrameworkCore;
+using Lpb.Identity.Web.BackgroundWorker;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
@@ -48,6 +49,10 @@ namespace Lpb.Identity.Web.Startup
                 .CreateControllersForAppServices(
                     typeof(IdentityApplicationModule).GetAssembly()
                 );
+
+            //启用后台任务
+            Configuration.BackgroundJobs.IsJobExecutionEnabled = true;
+
         }
 
         public override void Initialize()
@@ -59,6 +64,10 @@ namespace Lpb.Identity.Web.Startup
         {
             IocManager.Resolve<ApplicationPartManager>()
                 .AddApplicationPartsIfNotAddedBefore(typeof(IdentityWebModule).Assembly);
+
+            //后台工人
+            var workManager = IocManager.Resolve<IdentityBackgroundWorker>();
+            workManager.Start();
         }
     }
 }
