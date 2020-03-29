@@ -73,6 +73,13 @@ namespace Lpb.Gateway
 
             services.AddOcelot(new ConfigurationBuilder().AddJsonFile("Ocelot.json").Build())
                 .AddPolly();
+
+            //Swagger - Enable this line and the related lines in Configure method to enable swagger UI
+            //services.AddSwaggerGen(options =>
+            //{
+            //    options.SwaggerDoc("v1", new Info { Title = "Íø¹Ø·þÎñ", Version = "v1" });
+            //    options.DocInclusionPredicate((docName, description) => true);
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -99,6 +106,8 @@ namespace Lpb.Gateway
                 "api_a",
                 "api_b"
             };
+            //// Enable middleware to serve generated Swagger as a JSON endpoint
+            //app.UseSwagger();
             //app.UseSwaggerUI(options =>
             //{
             //    foreach (var item in args)
