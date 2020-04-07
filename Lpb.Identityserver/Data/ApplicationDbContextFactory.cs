@@ -17,15 +17,7 @@ namespace Lpb.Identityserver.Data
 
             builder.UseSqlServer(configuration.GetConnectionString("Default"));
 
-            return new PersistedGrantSqlDbContext(builder.Options, new OperationalStoreOptions {
-                //ConfigureDbContext = b =>
-                //        b.UseSqlServer(connectionString,
-                //            sql => sql.MigrationsAssembly(migrationsAssembly)),
-
-            // this enables automatic token cleanup. this is optional.
-            EnableTokenCleanup = true,
-            TokenCleanupInterval = 15 // frequency in seconds to cleanup stale grants. 15 is useful during debugging
-        });
+            return new PersistedGrantSqlDbContext(builder.Options, new OperationalStoreOptions());
         }
     }
 }
